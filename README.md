@@ -74,3 +74,10 @@ Finally, follow the official `Skywire` documentation to clone the GitHub repo, b
 https://github.com/skycoin/skywire/blob/master/README.md
 
 Good luck, and let me know how you get on.
+
+Donations welcome:
+```
+SkyCoin: 2aAprdFyxV3bqYB5yix2WsjsH1wqLKaoLhq
+
+BitCoin: 1Fiy5QQg55CtRRyrEvaxuuj6cxtbceQVfW
+```
