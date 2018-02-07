@@ -64,6 +64,11 @@ export PATH=$PATH:/usr/local/go/bin
 
 I would also recommend looking at the official `Golang` install guide as there are some other environmental variables you should add to your `~/.profile` file to make this work better (`$GOPATH`, `$GOBIN`)
 
+Next you need to update your running environment with the changes you made to your `~/,profile` file by running the following command:
+```
+source ~/.profile
+```
+
 Assuming everything went well to this point, you should now have `Golang v1.9` installed on your `Raspberry Pi`. Use the following command to check:
 ```
 go version
