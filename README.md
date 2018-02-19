@@ -88,5 +88,5 @@ Donations welcome:
 ```
 SkyCoin: 2aAprdFyxV3bqYB5yix2WsjsH1wqLKaoLhq
 
-BitCoin: 1Fiy5QQg55CtRRyrEvaxuuj6cxtbceQVfW
+BitCoin: 37rPeTNjosfydkB4nNNN1XKNrrxxfbLcMA
 ```
