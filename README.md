@@ -53,16 +53,26 @@ Skywire requires `Golang v1.9`. Download and install `Golang v1.9` from the offi
 wget https://storage.googleapis.com/golang/go1.9.linux-armv6l.tar.gz
 sudo tar -C /usr/local -xzf go1.9.linux-armv6l.tar.gz
 ```
-Add the newly installed `Go` binaries to your users `PATH`. Edit your `~/.profile` file:
+
+From your users home folder, create your local `Go` environment folders:
+```
+mkdir go
+mkdir go/bin
+mkdir go/src
+```
+
+Add the newly installed `Go` binaries and your build environment folders to your users `PATH`. Edit your `~/.profile` file:
 ```
 nano ~/.profile
 ```
 Add the following to the end of the file:
 ```
 export PATH=$PATH:/usr/local/go/bin
+export GOPATH=$HOME/go
+export GOBIN=$HOME/go/bin
 ```
 
-I would also recommend looking at the official `Golang` install guide as there are some other environmental variables you should add to your `~/.profile` file to make this work better (`$GOPATH`, `$GOBIN`)
+I recommend looking at the official [Golang Settings Guide](https://github.com/golang/go/wiki/SettingGOPATH) for more information on environmental variables you should add to your `~/.profile` file to make this work better (`$GOPATH`, `$GOBIN`)
 
 Next you need to update your running environment with the changes you made to your `~/,profile` file by running the following command:
 ```
