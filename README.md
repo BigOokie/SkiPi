@@ -92,9 +92,22 @@ sudo apt-get install git
 ### Install Skywire
 Finally, follow the  [Skywire Offical Documentation](https://github.com/skycoin/skywire/blob/master/README.md) to clone the `GitHub` repo, build and then run the node using the instructions provided in the `Skywire` documentation.
 
+
+### Further Reading
+There has been a lot of discussion recently around setup of secure, hardend `SSH` servers for management of `Skywire` nodes in the Skywire relared Telegram groups. A lot of thanks to users like `@asxtree` for contributions to this discussion and write-ups on the [Skywug](https://skywug.net/) forums.
+
+The following are a list of additional reading that will no doubt help you in the setup:
+* https://www.raspberrypi.org/documentation/configuration/security.md
+* https://linode.com/docs/security/securing-your-server/
+* https://www.howtoforge.com/tutorial/openssh-security-best-practices/
+* https://www.ssh.com/ssh/keygen/
+* [Skywug Forum](https://skywug.net/)
+* [Skywire Telegram Group](https://t.me/skywire)
+
+These should give you a fairly good grounding in `SSH` and whats required to harden the the server.
+
 Good luck, and let me know how you get on.
 
-Also please checkout the [Skywug](https://skywug.net/) forum and the [Skywire Telegram Group](https://t.me/skywire). Lots of great info and helpful people there too.
 
 ```
 If you found my tips useful, consider providing a tip of your own ;-)
