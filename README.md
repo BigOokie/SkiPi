@@ -94,9 +94,12 @@ Finally, follow the  [Skywire Offical Documentation](https://github.com/skycoin/
 
 Good luck, and let me know how you get on.
 
-Donations welcome:
-```
-SkyCoin: 2aAprdFyxV3bqYB5yix2WsjsH1wqLKaoLhq
+Also please checkout the [Skywug](https://skywug.net/) forum and the [Skywire Telegram Group](https://t.me/skywire). Lots of great info and helpful people there too.
 
-BitCoin: 37rPeTNjosfydkB4nNNN1XKNrrxxfbLcMA
+```
+If you found my tips useful, consider providing a tip of your own ;-)
+
+SkyCoin:    2aAprdFyxV3bqYB5yix2WsjsH1wqLKaoLhq
+Spaco:      Wcw8jifS7nXBeHPhdJfBsXqbUHBubUDHAp
+BitCoin:    37rPeTNjosfydkB4nNNN1XKNrrxxfbLcMA
 ```
