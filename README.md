@@ -54,8 +54,9 @@ wget https://storage.googleapis.com/golang/go1.9.linux-armv6l.tar.gz
 sudo tar -C /usr/local -xzf go1.9.linux-armv6l.tar.gz
 ```
 
-From your users home folder, create your local `Go` environment folders:
+Make sure you are in your users home folder, create your local `Go` environment folders:
 ```
+cd ~
 mkdir go
 mkdir go/bin
 mkdir go/src
@@ -97,7 +98,7 @@ The `Skywire` doco above provides the command lines needed to run both the Manag
 
 ```
 nohup ./manager -web-dir ${GOPATH}/src/github.com/skycoin/skywire/static/skywire-manager &
-nohup ./node -connect-manager -manager-address :5998 -manager-web :8000 -discovery-address messenger.skycoin.net:5999 -address :5000 -web-port :6001
+nohup ./node -connect-manager -manager-address :5998 -manager-web :8000 -discovery-address messenger.skycoin.net:5999-028667f86c17f1b4120c5bf1e58f276cbc1110a60e80b7dc8bf291c6bec9970e74 -address :5000 -web-port :6001 &
 ```
 This tells the processes not to hangup (`nohup`) when you log out of the shell, and to place the process into the background (`&`) (not interactive with the command line).
 
