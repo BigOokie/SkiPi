@@ -92,6 +92,14 @@ sudo apt-get install git
 ### Install Skywire
 Finally, follow the  [Skywire Offical Documentation](https://github.com/skycoin/skywire/blob/master/README.md) to clone the `GitHub` repo, build and then run the node using the instructions provided in the `Skywire` documentation.
 
+### Running the Manager and the Node
+The `Skywire` doco above provides the command lines needed to run both the Manager and the Node. It suggests running from two seperate shell terminals. This is ok when your testing, but if you want your rig to run perminantly in the background without needinf to leave you shell session open, use the following commands:
+
+```
+nohup ./manager -web-dir ${GOPATH}/src/github.com/skycoin/skywire/static/skywire-manager &
+nohup ./node -connect-manager -manager-address :5998 -manager-web :8000 -discovery-address messenger.skycoin.net:5999 -address :5000 -web-port :6001
+```
+This tells the processes not to hangup (`nohup`) when you log out of the shell, and to place the process into the background (`&`) (not interactive with the command line).
 
 ### Further Reading
 There has been a lot of discussion recently around setup of secure, hardend `SSH` servers for management of `Skywire` nodes in the Skywire relared Telegram groups. A lot of thanks to users like `@asxtree` for contributions to this discussion and write-ups on the [Skywug](https://skywug.net/) forums.
