@@ -102,26 +102,35 @@ nohup ./node -connect-manager -manager-address :5998 -manager-web :8000 -discove
 ```
 This tells the processes not to hangup (`nohup`) when you log out of the shell, and to place the process into the background (`&`) (not interactive with the command line).
 
-### Further Reading
-There has been a lot of discussion recently around setup of secure, hardend `SSH` servers for management of `Skywire` nodes in the Skywire relared Telegram groups. A lot of thanks to users like `@asxtree` for contributions to this discussion and write-ups on the [Skywug](https://skywug.net/) forums.
-
+## Further Reading
 The following are a list of additional reading that will no doubt help you in the setup:
-* https://www.raspberrypi.org/documentation/configuration/security.md
-* https://linode.com/docs/security/securing-your-server/
-* https://www.howtoforge.com/tutorial/openssh-security-best-practices/
-* https://www.ssh.com/ssh/keygen/
+* [Raspberry Pi - Security](https://www.raspberrypi.org/documentation/configuration/security.md)
+* [Linode - Securing Your Server](https://linode.com/docs/security/securing-your-server/)
+* [Howto Forge - OpenSSH Best Practices](https://www.howtoforge.com/tutorial/openssh-security-best-practices/)
+* [SSH KeyGen Guide](https://www.ssh.com/ssh/keygen/)
 * [Skywug Forum](https://skywug.net/)
 * [Skywire Telegram Group](https://t.me/skywire)
+* [Raspberry Pi Headless Setup](http://www.circuitbasics.com/raspberry-pi-basics-setup-without-monitor-keyboard-headless-mode/)
 
-These should give you a fairly good grounding in `SSH` and whats required to harden the the server.
+### SD Card Management
+* [Raspberry Pi Bakery](http://www.pibakery.org/index.html)
+* [Raspberri Pi SD Card Cloning: Linux, Mac, Windows](https://beebom.com/how-clone-raspberry-pi-sd-card-windows-linux-macos/)
 
 Good luck, and let me know how you get on.
 
+***
+**Acknowledgements**
 
-```
+Thanks to those in the [Skywire](https://t.me/skywire) and [SPO-Community](https://t.me/WeAreSPACO) Telegram groups, as well as the [Skywug Forum](https://skywug.net/) who have helped to provide feedback to enrich this HOWTO. Lots of helpful people in there - but special thanks to:
+* MrHodlr | Systems Integrator | Skycoin
+* asxtree
+* JohnSmith_h
+
+***
 If you found my tips useful, consider providing a tip of your own ;-)
-
+```
 SkyCoin:    2aAprdFyxV3bqYB5yix2WsjsH1wqLKaoLhq
 Spaco:      Wcw8jifS7nXBeHPhdJfBsXqbUHBubUDHAp
 BitCoin:    37rPeTNjosfydkB4nNNN1XKNrrxxfbLcMA
 ```
+***
