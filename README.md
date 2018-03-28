@@ -2,7 +2,9 @@
 ## Overview
 This howto is intended to provide guidance in setting up `Skywire` from the `SkyCoin` project on a `Raspberry Pi`.
 
-This howto is based on my own research and experience setting up `Skywire` on a `Raspberry Pi 2 B+` using standard `Raspbian OS` running `GoLang 1.9` and building `Skywire` directly from `GitHub` source.  This all worked for me as of `31-Jan-2018`.
+This howto is based on my own research and experience setting up `Skywire` on a `Raspberry Pi 2 B+` and more recently the new `Raspberry Pi 3 B+` using standard `Raspbian OS` running `GoLang 1.9` and building `Skywire` directly from `GitHub` source.  This has continued to worked for me (and others) as of `28-Mar-2018`.
+
+I now have a mini cluster of 3 Raspberry Pis running `Skywire Nodes` (and slowly adding to this over time).
 
 Some of my motivations for writing this howto are:
 * Learn more about the [SkyCoin project](https://github.com/skycoin).
@@ -13,7 +15,7 @@ Some of my motivations for writing this howto are:
 ## Instructions
 ### Setup your Raspberry Pi
 * Download the latest version of [NOOBS](https://www.raspberrypi.org/downloads/noobs/) from the official `Raspberry Pi` web site.
-* Setup an SD Card and boot your `Raspberry Pi` following the [NOOBS Setup Guide](https://www.raspberrypi.org/learning/software-guide/)
+* Setup an SD Card and boot your `Raspberry Pi` following the [NOOBS Setup Guide](https://www.raspberrypi.org/learning/software-guide/). 
 
 During the initial (first) boot, you will be asked which type of OS you want to install onto your `Raspberry Pi`. For my experiment I selected `Raspbian Lite` as I didnt want the bloat associated with the full desktop version, and also wanted to access my Pi remotely via SSH (headless).
 
@@ -41,14 +43,14 @@ Once the Configuration App starts, you should update the following:
 * Enable SSH access (Do your research and harden your Pi before making it accessable to the public internet - I dont cover how to do this here).
 
 ### Remove pre-installed Golang
-Use the following commands to remove any pre-installed versions of `GoLang` from the Pi:
+Use the following commands to remove any pre-installed versions of `GoLang` from the Pi - seems it may not be installed by default, but no harm in running this anyway:
 ```
 sudo apt-get remove golang
 sudo apt autoremove
 ```
 
 ### Install Golang v1.9
-Skywire requires `Golang v1.9`. Download and install `Golang v1.9` from the official `GitHub` repo for the `Raspberry Pi` architecture using the following command:
+Skywire requires `Golang v1.9` or above. Download and install `Golang v1.9` from the official `GitHub` repo for the `Raspberry Pi` architecture using the following command:
 ```
 wget https://storage.googleapis.com/golang/go1.9.linux-armv6l.tar.gz
 sudo tar -C /usr/local -xzf go1.9.linux-armv6l.tar.gz
@@ -84,6 +86,7 @@ Assuming everything went well to this point, you should now have `Golang v1.9` i
 ```
 go version
 ```
+If you get errors here, something is wrong with your `Go` setup - most likely your paths so check them carefully and make sure you reloaded you profile file using the `source` command.
 
 ### Install Git
 Use the following command to install Git:
@@ -98,9 +101,17 @@ The `Skywire` doco above provides the command lines needed to run both the Manag
 
 ```
 nohup ./manager -web-dir ${GOPATH}/src/github.com/skycoin/skywire/static/skywire-manager &
+
 nohup ./node -connect-manager -manager-address :5998 -manager-web :8000 -discovery-address messenger.skycoin.net:5999-028667f86c17f1b4120c5bf1e58f276cbc1110a60e80b7dc8bf291c6bec9970e74 -address :5000 -web-port :6001 &
 ```
 This tells the processes not to hangup (`nohup`) when you log out of the shell, and to place the process into the background (`&`) (not interactive with the command line).
+
+The above assumes you are running both the `Manager` and the `Node` on the same machine. This is typical for your first node.  For secondary nodes, you do not need to run the `Manager` (you only need a single `Manager`). For additional `Nodes` running on other `Raspberry Pis` you need to add the IP address of your `Manager Node` into the command line above - for exmple:
+```
+nohup ./node -connect-manager -manager-address {MANAGER_IP}:5998 -manager-web {MANAGER_IP}:8000 -discovery-address messenger.skycoin.net:5999-028667f86c17f1b4120c5bf1e58f276cbc1110a60e80b7dc8bf291c6bec9970e74 -address :5000 -web-port :6001 &
+```
+You need to replace `{MANAGER_IP}` in the command line above with the IP address of the `Manager Node`.
+
 
 ## Further Reading
 The following are a list of additional reading that will no doubt help you in the setup:
@@ -125,12 +136,13 @@ Thanks to those in the [Skywire](https://t.me/skywire) and [SPO-Community](https
 * MrHodlr | Systems Integrator | Skycoin
 * asxtree
 * JohnSmith_h
+* BobUltra
 
 ***
 If you found my tips useful, consider providing a tip of your own ;-)
 ```
 SkyCoin:    2aAprdFyxV3bqYB5yix2WsjsH1wqLKaoLhq
-Spaco:      Wcw8jifS7nXBeHPhdJfBsXqbUHBubUDHAp
+SPO:        Wcw8jifS7nXBeHPhdJfBsXqbUHBubUDHAp
 BitCoin:    37rPeTNjosfydkB4nNNN1XKNrrxxfbLcMA
 ```
 ***
