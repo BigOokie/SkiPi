@@ -40,7 +40,7 @@ Once the Configuration App starts, you should update the following:
 * Timezone.
 * Keyboard.
 * Password (suggest changing this from the default!).
-* Enable SSH access (Do your research and harden your Pi before making it accessable to the public internet - I dont cover how to do this here).
+* Enable SSH access (Interfacing Options > SSH > Yes > Ok). Do your research and harden your Pi before making it accessable to the public internet - I dont cover how to do this here.
 
 ### Remove pre-installed Golang
 Use the following commands to remove any pre-installed versions of `GoLang` from the Pi - seems it may not be installed by default, but no harm in running this anyway:
