@@ -112,6 +112,15 @@ nohup ./node -connect-manager -manager-address {MANAGER_IP}:5998 -manager-web {M
 ```
 You need to replace `{MANAGER_IP}` in the command line above with the IP address of the `Manager Node`.
 
+When you run the `Manager` and the `Node` in the background and disconnected from the terminal session (as per the commands above), you won't see any debug messages. If you want to keep tabs on what they are doing use the following:
+
+```
+cd $GOPATH/bin
+tail -f nohup.out
+```
+This will `follow` and stream the last 10 lines of the `nohup.out` file to the terminal session until you press `CTRL+C`. 
+
+The `nohup.out` file is only created when you run either the `Manager` or the `Node` with the `nohup` command.
 
 ## Further Reading
 The following are a list of additional reading that will no doubt help you in the setup:
