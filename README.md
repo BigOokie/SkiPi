@@ -29,7 +29,12 @@ Once logged in, update the system using the following commands:
 sudo apt-get update
 sudo apt-get upgrade
 ```
-You might need to reboot your Pi after this - depending on what was updated. Easiest way to do this is with `CTRL+ALT+DEL`.
+Note: Some people have reported issues when trying to install `git` (steps outlined later). Based on feedback, I believe (in some cases) you may need to reboot the `Raspberry Pi` and then repeat the `update` and `upgrade` steps above to complete the update cycle properly.
+
+If you are connected directly to your `Raspberry Pi` (keyboard and HDMI screen) you can reboot it simply by pressing `CTRL+ALT+DEL`
+
+Alternativly, you can issue the following command: `sudo reboot`
+
 
 Next run the `Raspberry Pi Configuration` app using the following command:
 ```
