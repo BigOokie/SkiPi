@@ -113,13 +113,11 @@ This tells the processes not to hangup (`nohup`) when you log out of the shell, 
 
 The above assumes you are running both the `Manager` and the `Node` on the same machine. This is typical for your first node.  For secondary nodes, you do not need to run the `Manager` (you only need a single `Manager`). For additional `Nodes` running on other `Raspberry Pis` you need to add the IP address of your `Manager Node` into the command line above - for exmple:
 ```
-nohup ./node -connect-manager -manager-address {MANAGER_IP}:5998 -manager-web {MANAGER_IP}:8000 -discovery-address messenger.skycoin.net:5999-028667f86c17f1b4120c5bf1e58f276cbc1110a60e80b7dc8bf291c6bec9970e74 -address :5000 -web-port {:NODE_WEB_PORT} &
+nohup ./node -connect-manager -manager-address {MANAGER_IP}:5998 -manager-web {MANAGER_IP}:8000 -discovery-address messenger.skycoin.net:5999-028667f86c17f1b4120c5bf1e58f276cbc1110a60e80b7dc8bf291c6bec9970e74 -address {:NODE_ADDRESS} -web-port :6001 &
 ```
-You need to replace `{MANAGER_IP}` in the command line above with the IP address of the `Manager Node`. You also need to replace {:NODE_WEB_PORT} with a different port number for each Node you run. For example `:6001` for your first Node, `:6002` for your second Node, etc.
+You need to replace `{MANAGER_IP}` in the command line above with the IP address of the `Manager Node`. You also need to replace {:NODE_ADDRESS} with a different port number for each Node you run. For example `:5000` for your first Node (this is also the default), `:5001` for your second Node, etc.
 
-You can then use the {:NODE_WEB_PORT} to open up
-ports on your Firewall (not: this is still being discussed and tested in the Skywire telegram
-geoup)
+Note: The use of {:NODE_ADDRESS} is still being discussed and reviewed in the Skywire Telegram group. It is expected that this is the port you may need to use / open on your firewall - but this needs confirmation. 
 
 When you run the `Manager` and the `Node` in the background and disconnected from the terminal session (as per the commands above), you won't see any debug messages. If you want to keep tabs on what they are doing use the following:
 
