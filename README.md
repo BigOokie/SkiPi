@@ -82,7 +82,7 @@ export GOBIN=$HOME/go/bin
 
 I recommend looking at the official [Golang Settings Guide](https://github.com/golang/go/wiki/SettingGOPATH) for more information on environmental variables you should add to your `~/.profile` file to make this work better (`$GOPATH`, `$GOBIN`)
 
-Next you need to update your running environment with the changes you made to your `~/,profile` file by running the following command:
+Next you need to update your running environment with the changes you made to your `~/.profile` file by running the following command:
 ```
 source ~/.profile
 ```
