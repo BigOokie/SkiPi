@@ -15,7 +15,9 @@ Some of my motivations for writing this howto are:
 ## Instructions
 ### Setup your Raspberry Pi
 * Download the latest version of [NOOBS](https://www.raspberrypi.org/downloads/noobs/) from the official `Raspberry Pi` web site.
-* Setup an SD Card and boot your `Raspberry Pi` following the [NOOBS Setup Guide](https://www.raspberrypi.org/learning/software-guide/). 
+* Setup an SD Card with NOOBs
+* Add a file named `ssh` to the root folder of your NOOBs SD card. This will enable SSH by default from the first boot.
+* Boot your `Raspberry Pi` following the [NOOBS Setup Guide](https://www.raspberrypi.org/learning/software-guide/). 
 
 During the initial (first) boot, you will be asked which type of OS you want to install onto your `Raspberry Pi`. For my experiment I selected `Raspbian Lite` as I didnt want the bloat associated with the full desktop version, and also wanted to access my Pi remotely via SSH (headless).
 
@@ -29,7 +31,7 @@ Once logged in, update the system using the following commands:
 sudo apt-get update
 sudo apt-get upgrade
 ```
-Note: Some people have reported issues when trying to install `git` (steps outlined later). Based on feedback, I believe (in some cases) you may need to reboot the `Raspberry Pi` and then repeat the `update` and `upgrade` steps above to complete the update cycle properly.
+**Note:** Some people have reported issues when trying to install `git` (steps outlined later). Based on feedback, I believe (in some cases) you may need to reboot the `Raspberry Pi` and then repeat the `update` and `upgrade` steps above to complete the update cycle properly.
 
 If you are connected directly to your `Raspberry Pi` (keyboard and HDMI screen) you can reboot it simply by pressing `CTRL+ALT+DEL`
 
@@ -45,10 +47,13 @@ Once the Configuration App starts, you should update the following:
 * Timezone.
 * Keyboard.
 * Password (suggest changing this from the default!).
-* Enable SSH access (Interfacing Options > SSH > Yes > Ok). Do your research and harden your Pi before making it accessable to the public internet - I dont cover how to do this here.
+* Enable SSH access - if you havent enabled it already using the `ssh` file. SSH settings
+are found in Interfacing Options > SSH. 
 
-### Remove pre-installed Golang
-Use the following commands to remove any pre-installed versions of `GoLang` from the Pi - seems it may not be installed by default, but no harm in running this anyway:
+**Note:** SSH is a very powerful tool and is used to remotly access your Pi. Do your research and harden your Pi before making it accessable to any public network - I don’t cover how to do this here.
+
+### Remove pre-installed Golang.
+The following commands can be used to remove any pre-installed versions of `GoLang` from the Pi - seems it may not be installed by default, but no harm in running this anyway:
 ```
 sudo apt-get remove golang
 sudo apt autoremove
@@ -58,6 +63,7 @@ sudo apt autoremove
 Skywire requires `Golang v1.9` or above. Download and install `Golang v1.9` from the official `GitHub` repo for the `Raspberry Pi` architecture using the following command:
 ```
 wget https://storage.googleapis.com/golang/go1.9.linux-armv6l.tar.gz
+
 sudo tar -C /usr/local -xzf go1.9.linux-armv6l.tar.gz
 ```
 
@@ -80,7 +86,7 @@ export GOPATH=$HOME/go
 export GOBIN=$HOME/go/bin
 ```
 
-I recommend looking at the official [Golang Settings Guide](https://github.com/golang/go/wiki/SettingGOPATH) for more information on environmental variables you should add to your `~/.profile` file to make this work better (`$GOPATH`, `$GOBIN`)
+I recommend looking at the official [Golang Settings Guide](https://github.com/golang/go/wiki/SettingGOPATH) for more information on environment variables you should add to your `~/.profile` file to make this work better (`$GOPATH`, `$GOBIN`)
 
 Next you need to update your running environment with the changes you made to your `~/.profile` file by running the following command:
 ```
@@ -102,7 +108,11 @@ sudo apt-get install git
 Finally, follow the  [Skywire Offical Documentation](https://github.com/skycoin/skywire/blob/master/README.md) to clone the `GitHub` repo, build and then run the node using the instructions provided in the `Skywire` documentation.
 
 ### Running the Manager and the Node
-The `Skywire` doco above provides the command lines needed to run both the Manager and the Node. It suggests running from two seperate shell terminals. This is ok when your testing, but if you want your rig to run perminantly in the background without needinf to leave you shell session open, use the following commands:
+The official `Skywire` doco on GitHub provides the command lines needed to run both the Manager and the Node. The Skywire team may update these cmds from time to time so I suggest always looking there. 
+
+
+Optionally the following sets of commands can also be used (I will keep these updated with any changes to official doco).
+
 
 ```
 nohup ./manager -web-dir ${GOPATH}/src/github.com/skycoin/skywire/static/skywire-manager &
@@ -115,9 +125,11 @@ The above assumes you are running both the `Manager` and the `Node` on the same 
 ```
 nohup ./node -connect-manager -manager-address {MANAGER_IP}:5998 -manager-web {MANAGER_IP}:8000 -discovery-address messenger.skycoin.net:5999-028667f86c17f1b4120c5bf1e58f276cbc1110a60e80b7dc8bf291c6bec9970e74 -address {:NODE_ADDRESS} -web-port :6001 &
 ```
-You need to replace `{MANAGER_IP}` in the command line above with the IP address of the `Manager Node`. You also need to replace {:NODE_ADDRESS} with a different port number for each Node you run. For example `:5000` for your first Node (this is also the default), `:5001` for your second Node, etc.
+You need to replace `{MANAGER_IP}` in the command line above with the IP address of the `Manager Node`. 
 
-Note: The use of {:NODE_ADDRESS} is still being discussed and reviewed in the Skywire Telegram group. It is expected that this is the port you may need to use / open on your firewall - but this needs confirmation. 
+You also need to replace {:NODE_ADDRESS} with a different port number for each Node you run. For example `:5000` for your first Node (this is also the default), `:5001` for your second Node, etc.
+
+**Note:** The use of {:NODE_ADDRESS} is still being discussed and reviewed in the Skywire Telegram group. It is expected that this is the port you may need to use / open on your firewall - but this needs confirmation. 
 
 When you run the `Manager` and the `Node` in the background and disconnected from the terminal session (as per the commands above), you won't see any debug messages. If you want to keep tabs on what they are doing use the following:
 
