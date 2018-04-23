@@ -2,21 +2,23 @@
 ## Overview
 This howto is intended to provide guidance in setting up `Skywire` from the `SkyCoin` project on a `Raspberry Pi`.
 
-This howto is based on my own research and experience setting up `Skywire` on a `Raspberry Pi 2 B+` and more recently the new `Raspberry Pi 3 B+` using standard `Raspbian OS` running `GoLang 1.9` and building `Skywire` directly from `GitHub` source.  This has continued to worked for me (and others) as of `28-Mar-2018`.
+This HOWTO is based on my own research and experience setting up `Skywire` on a `Raspberry Pi 2 B+` and more recently the new `Raspberry Pi 3 B+` using standard `Raspbian OS` running `GoLang 1.9` and building `Skywire` directly from `GitHub` source. This has continued to worked for me (and others) as of `28-Mar-2018`.
 
 I now have a mini cluster of 3 Raspberry Pis running `Skywire Nodes` (and slowly adding to this over time).
 
 Some of my motivations for writing this howto are:
 * Learn more about the [SkyCoin project](https://github.com/skycoin).
 * Setup a `Skywire` node using a `Rasberry Pi`.
-* Help others who are also following the project.
-* Help to dispell misinformation that this cannot be done - there was a lot out there! Mainly that the Raspberry Pi is 32bit and cant run Golang 1.9, and therefore Skywire.
+* Share and help others in the community.
+* Help to dispell misinformation that this cannot be done - there was a lot out there! Mainly that the Raspberry Pi is 32bit and can’t run Golang 1.9, and therefore Skywire.
+
+**Basically: Learn, Share, Repeat**
 
 ## Instructions
 ### Setup your Raspberry Pi
 * Download the latest version of [NOOBS](https://www.raspberrypi.org/downloads/noobs/) from the official `Raspberry Pi` web site.
-* Setup an SD Card with NOOBs
-* Add a file named `ssh` to the root folder of your NOOBs SD card. This will enable SSH by default from the first boot.
+* Setup an SD Card with NOOBs. Follow the official instructions on the `Raspberry Pi` site.
+* Add a file named `ssh` to the root folder of your NOOBs SD card. This will enable SSH by default from the first boot and will allow you to complete a headless setup (no directly connected keyboard and monitor).  
 * Boot your `Raspberry Pi` following the [NOOBS Setup Guide](https://www.raspberrypi.org/learning/software-guide/). 
 
 During the initial (first) boot, you will be asked which type of OS you want to install onto your `Raspberry Pi`. For my experiment I selected `Raspbian Lite` as I didnt want the bloat associated with the full desktop version, and also wanted to access my Pi remotely via SSH (headless).
@@ -26,7 +28,17 @@ Once Raspbian is installed (this takes a while), log into the console using the 
 username: pi
 password: raspberry
 ```
-Once logged in, update the system using the following commands:
+Once logged in, test your Pi is able to access the internet correctly. This appears to be a stumbling point for some and will cause issues later. Use the following command to test your connectivity:
+```
+curl ifconfig.co
+```
+The command will make an enquiry to the ifconfig.co server and respond with your public IP. This tests two things:
+* Your Pi can access and resolve internet hosts (via DNS).
+* Confirm your public IP address
+
+If you get problems with the above cmd line, your problem is most likely your network setup. Everyones network is different, so I don’t cover network setup here.
+
+Next, update the system using the following commands:
 ```
 sudo apt-get update
 sudo apt-get upgrade
@@ -35,8 +47,10 @@ sudo apt-get upgrade
 
 If you are connected directly to your `Raspberry Pi` (keyboard and HDMI screen) you can reboot it simply by pressing `CTRL+ALT+DEL`
 
-Alternativly, you can issue the following command: `sudo reboot`
-
+Alternativly, you can issue the following command: 
+```
+sudo reboot
+```
 
 Next run the `Raspberry Pi Configuration` app using the following command:
 ```
@@ -46,11 +60,11 @@ Once the Configuration App starts, you should update the following:
 * Regional Settings.
 * Timezone.
 * Keyboard.
-* Password (suggest changing this from the default!).
+* Password (aleays change this from the default!).
 * Enable SSH access - if you havent enabled it already using the `ssh` file. SSH settings
 are found in Interfacing Options > SSH. 
 
-**Note:** SSH is a very powerful tool and is used to remotly access your Pi. Do your research and harden your Pi before making it accessable to any public network - I don’t cover how to do this here.
+**Note:** SSH is a very powerful tool and is used to remotly access your Pi. Do your research and harden your Pi before making it accessable to any public network - I don’t cover how to do this here, but there are many good resources abailable - some have been listed in the Further Reading section below.
 
 ### Remove pre-installed Golang.
 The following commands can be used to remove any pre-installed versions of `GoLang` from the Pi - seems it may not be installed by default, but no harm in running this anyway:
@@ -97,7 +111,7 @@ Assuming everything went well to this point, you should now have `Golang v1.9` i
 ```
 go version
 ```
-If you get errors here, something is wrong with your `Go` setup - most likely your paths so check them carefully and make sure you reloaded you profile file using the `source` command.
+If you get errors here, something is wrong with your `Go` setup - most likely your paths or environment so check them carefully and make sure you reloaded you profile file using the `source` command.
 
 ### Install Git
 Use the following command to install Git:
@@ -108,50 +122,26 @@ sudo apt-get install git
 Finally, follow the  [Skywire Offical Documentation](https://github.com/skycoin/skywire/blob/master/README.md) to clone the `GitHub` repo, build and then run the node using the instructions provided in the `Skywire` documentation.
 
 ### Running the Manager and the Node
-The official `Skywire` doco on GitHub provides the command lines needed to run both the Manager and the Node. The Skywire team may update these cmds from time to time so I suggest always looking there. 
+The official `Skywire` doco on GitHub provides the command lines needed to run both the Manager and the Node. 
 
+Previously this guide contained the commands needed to run both the Manager and the Node, however as the Skywire team may update these cmds from time to time so please follow their instructions:
+[Skywire Offical Documentation](https://github.com/skycoin/skywire/blob/master/README.md)
 
-Optionally the following sets of commands can also be used (I will keep these updated with any changes to official doco).
-
-
-```
-nohup ./manager -web-dir ${GOPATH}/src/github.com/skycoin/skywire/static/skywire-manager &
-
-nohup ./node -connect-manager -manager-address :5998 -manager-web :8000 -discovery-address messenger.skycoin.net:5999-028667f86c17f1b4120c5bf1e58f276cbc1110a60e80b7dc8bf291c6bec9970e74 -address :5000 -web-port :6001 &
-```
-This tells the processes not to hangup (`nohup`) when you log out of the shell, and to place the process into the background (`&`) (not interactive with the command line).
-
-The above assumes you are running both the `Manager` and the `Node` on the same machine. This is typical for your first node.  For secondary nodes, you do not need to run the `Manager` (you only need a single `Manager`). For additional `Nodes` running on other `Raspberry Pis` you need to add the IP address of your `Manager Node` into the command line above - for exmple:
-```
-nohup ./node -connect-manager -manager-address {MANAGER_IP}:5998 -manager-web {MANAGER_IP}:8000 -discovery-address messenger.skycoin.net:5999-028667f86c17f1b4120c5bf1e58f276cbc1110a60e80b7dc8bf291c6bec9970e74 -address {:NODE_ADDRESS} -web-port :6001 &
-```
-You need to replace `{MANAGER_IP}` in the command line above with the IP address of the `Manager Node`. 
-
-You also need to replace {:NODE_ADDRESS} with a different port number for each Node you run. For example `:5000` for your first Node (this is also the default), `:5001` for your second Node, etc.
-
-**Note:** The use of {:NODE_ADDRESS} is still being discussed and reviewed in the Skywire Telegram group. It is expected that this is the port you may need to use / open on your firewall - but this needs confirmation. 
-
-When you run the `Manager` and the `Node` in the background and disconnected from the terminal session (as per the commands above), you won't see any debug messages. If you want to keep tabs on what they are doing use the following:
-
-```
-cd $GOPATH/bin
-tail -f nohup.out
-```
-This will `follow` and stream the last 10 lines of the `nohup.out` file to the terminal session until you press `CTRL+C`. 
-
-The `nohup.out` file is only created when you run either the `Manager` or the `Node` with the `nohup` command.
 
 ## Further Reading
 The following are a list of additional reading that will no doubt help you in the setup:
 * [Raspberry Pi - Security](https://www.raspberrypi.org/documentation/configuration/security.md)
+* [Digital Ocean - SSH Essentials] (https://www.digitalocean.com/community/tutorials/ssh-essentials-working-with-ssh-servers-clients-and-keys)
 * [Linode - Securing Your Server](https://linode.com/docs/security/securing-your-server/)
 * [Howto Forge - OpenSSH Best Practices](https://www.howtoforge.com/tutorial/openssh-security-best-practices/)
 * [SSH KeyGen Guide](https://www.ssh.com/ssh/keygen/)
 * [Skywug Forum](https://skywug.net/)
 * [Skywire Telegram Group](https://t.me/skywire)
 * [Raspberry Pi Headless Setup](http://www.circuitbasics.com/raspberry-pi-basics-setup-without-monitor-keyboard-headless-mode/)
+* [ifconfig.co Command line public IP enquiry service](https://ifconfig.co/)
 
 ### SD Card Management
+* [Etcher] (https://etcher.io/)
 * [Raspberry Pi Bakery](http://www.pibakery.org/index.html)
 * [Raspberri Pi SD Card Cloning: Linux, Mac, Windows](https://beebom.com/how-clone-raspberry-pi-sd-card-windows-linux-macos/)
 
