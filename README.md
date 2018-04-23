@@ -131,7 +131,7 @@ Previously this guide contained the commands needed to run both the Manager and 
 ## Further Reading
 The following are a list of additional reading that will no doubt help you in the setup:
 * [Raspberry Pi - Security](https://www.raspberrypi.org/documentation/configuration/security.md)
-* [Digital Ocean - SSH Essentials] (https://www.digitalocean.com/community/tutorials/ssh-essentials-working-with-ssh-servers-clients-and-keys)
+* [Digital Ocean - SSH Essentials](https://www.digitalocean.com/community/tutorials/ssh-essentials-working-with-ssh-servers-clients-and-keys)
 * [Linode - Securing Your Server](https://linode.com/docs/security/securing-your-server/)
 * [Howto Forge - OpenSSH Best Practices](https://www.howtoforge.com/tutorial/openssh-security-best-practices/)
 * [SSH KeyGen Guide](https://www.ssh.com/ssh/keygen/)
@@ -141,7 +141,7 @@ The following are a list of additional reading that will no doubt help you in th
 * [ifconfig.co Command line public IP enquiry service](https://ifconfig.co/)
 
 ### SD Card Management
-* [Etcher] (https://etcher.io/)
+* [Etcher](https://etcher.io/)
 * [Raspberry Pi Bakery](http://www.pibakery.org/index.html)
 * [Raspberri Pi SD Card Cloning: Linux, Mac, Windows](https://beebom.com/how-clone-raspberry-pi-sd-card-windows-linux-macos/)
 
