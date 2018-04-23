@@ -30,7 +30,7 @@ password: raspberry
 ```
 Once logged in, test your Pi is able to access the internet correctly. This appears to be a stumbling point for some and will cause issues later. Use the following command to test your connectivity:
 ```
-curl ifconfig.co
+curl v4.ifconfig.co
 ```
 The command will make an enquiry to the ifconfig.co server and respond with your public IP. This tests two things:
 * Your Pi can access and resolve internet hosts (via DNS).
