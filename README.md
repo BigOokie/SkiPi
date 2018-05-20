@@ -1,4 +1,24 @@
 # SkyPi Howto
+
+## Skywire Testnet Launch 22-May
+The Skywire Testnet is launching on 22-May. Read about new software, and whitelisting process in the official [Skywire testnet release announcment](https://medium.com/@Skycoinproject/skywire-testnet-release-announcement-153583bc9d0e?source=linkShare-3babfcdcbb45-1526854196)
+
+# DIY RasPi Updates
+Get ready for the Skywire Testnet and update your DIY RasPi miners (note this proces should work for other DIY platforms also).
+
+Log into each board and run the following cmds (one by one):
+```
+cd $GOPATH/src/github.com/skycoin/skywire
+
+git pull origin master
+
+cd $GOPATH/src/github.com/skycoin/skywire/cmd
+
+go install -v ./...
+```
+Following the `go install` cmd, you should see output stating which apps have been rebuilt. At this point you should be updated and can run the Manager and Nodes again. 
+
+
 ## Overview
 This howto is intended to provide guidance in setting up `Skywire` from the `SkyCoin` project on a `Raspberry Pi`.
 
