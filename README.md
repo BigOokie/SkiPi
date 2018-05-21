@@ -10,6 +10,10 @@ Log into each board and run the following cmds (one by one):
 ```
 cd $GOPATH/src/github.com/skycoin/skywire
 
+git reset —- hard
+
+git clean -f -d
+
 git pull origin master
 
 cd $GOPATH/src/github.com/skycoin/skywire/cmd
@@ -172,6 +176,7 @@ Good luck, and let me know how you get on.
 
 Thanks to those in the [Skywire](https://t.me/skywire) and [SPO-Community](https://t.me/WeAreSPACO) Telegram groups, as well as the [Skywug Forum](https://skywug.net/) who have helped to provide feedback to enrich this HOWTO. Lots of helpful people in there - but special thanks to:
 * MrHodlr | Systems Integrator | Skycoin
+* K. | Systems Integrator | Skycoin
 * asxtree
 * JohnSmith_h
 * BobUltra
@@ -179,8 +184,10 @@ Thanks to those in the [Skywire](https://t.me/skywire) and [SPO-Community](https
 ***
 If you found my tips useful, consider providing a tip of your own ;-)
 ```
-SkyCoin:    2aAprdFyxV3bqYB5yix2WsjsH1wqLKaoLhq
+Skycoin:    2aAprdFyxV3bqYB5yix2WsjsH1wqLKaoLhq
+
 SPO:        Wcw8jifS7nXBeHPhdJfBsXqbUHBubUDHAp
+
 BitCoin:    37rPeTNjosfydkB4nNNN1XKNrrxxfbLcMA
 ```
 ***
