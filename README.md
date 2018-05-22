@@ -10,7 +10,7 @@ Log into each board and run the following cmds (one by one):
 ```
 cd $GOPATH/src/github.com/skycoin/skywire
 
-git reset —-hard
+git reset --hard
 
 git clean -f -d
 
