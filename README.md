@@ -2,9 +2,9 @@
 
 ## Skywire Testnet is now live
 The Skywire Testnet was launched on 22-May. The following are links to the official announcements (on Medium):
-*[Skywire testnet release announcment 21-May](https://medium.com/@Skycoinproject/skywire-testnet-release-announcement-153583bc9d0e?source=linkShare-3babfcdcbb45-1526854196)
-*[Skywire testnet whitelisting and installation manuals 22-May](https://medium.com/@Skycoinproject/skywire-testnet-whitelisting-installation-manuals-eac7bca63597?source=linkShare-3babfcdcbb45-1527025600)
-*[Skywire Whitelist Application](https://www.skycoin.net/whitelist/)
+* [Skywire testnet release announcment 21-May](https://medium.com/@Skycoinproject/skywire-testnet-release-announcement-153583bc9d0e?source=linkShare-3babfcdcbb45-1526854196)
+* [Skywire testnet whitelisting and installation manuals 22-May](https://medium.com/@Skycoinproject/skywire-testnet-whitelisting-installation-manuals-eac7bca63597?source=linkShare-3babfcdcbb45-1527025600)
+* [Skywire Whitelist Application](https://www.skycoin.net/whitelist/)
 
 The Skywire team have released an official installation guide which I recommend you follow:
 [Skywire Installation Guide v1.0](https://downloads.skycoin.net/skywire/Skywire-Installation-Guide-v1.0.pdf)
