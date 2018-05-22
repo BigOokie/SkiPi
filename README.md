@@ -1,9 +1,15 @@
 # SkyPi Howto
 
-## Skywire Testnet Launch 22-May
-The Skywire Testnet is launching on 22-May. Read about new software, and whitelisting process in the official [Skywire testnet release announcment](https://medium.com/@Skycoinproject/skywire-testnet-release-announcement-153583bc9d0e?source=linkShare-3babfcdcbb45-1526854196)
+## Skywire Testnet is now live
+The Skywire Testnet was launched on 22-May. The following are links to the official announcements (on Medium):
+*[Skywire testnet release announcment 21-May](https://medium.com/@Skycoinproject/skywire-testnet-release-announcement-153583bc9d0e?source=linkShare-3babfcdcbb45-1526854196)
+*[Skywire testnet whitelisting and installation manuals 22-May](https://medium.com/@Skycoinproject/skywire-testnet-whitelisting-installation-manuals-eac7bca63597?source=linkShare-3babfcdcbb45-1527025600)
+*[Skywire Whitelist Application](https://www.skycoin.net/whitelist/)
 
-# DIY RasPi Updates
+The Skywire team have released an official installation guide which I recommend you follow:
+[Skywire Installation Guide v1.0](https://downloads.skycoin.net/skywire/Skywire-Installation-Guide-v1.0.pdf)
+
+## DIY RasPi Updates
 Get ready for the Skywire Testnet and update your DIY RasPi miners (note this proces should work for other DIY platforms also).
 
 Log into each board and run the following cmds (one by one):
