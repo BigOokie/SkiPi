@@ -1,6 +1,23 @@
 # SkyPi Howto
 
-## Skywire testnet is now live!
+## Overview
+This howto is intended to provide guidance in setting up and updating`Skywire` from the `Skycoin` project on a `Raspberry Pi`.
+
+This howto is based on my own research and experience setting up `Skywire` on a `Raspberry Pi 2 B+` and more recently the new `Raspberry Pi 3 B+` using standard `Raspbian OS (NOOBs)` running `GoLang 1.10` and building `Skywire` directly from `GitHub` source. 
+
+This guide has continued to work for me and others as of `25-May-2018`. I endevor to keep the guide current - so please let me know if there are any ommissions, gaps or issues.
+
+I now have a mini cluster of Raspberry Pi's running `Skywire Nodes` and will slowly add more over time.
+
+Some of my motivations for writing this howto are:
+* Learn more about the [SkyCoin project](https://github.com/skycoin).
+* Setup a `Skywire` node using a `Rasberry Pi`.
+* Share and help others in the community.
+* Help to dispell misinformation that this cannot be done - there was a lot out there! Mainly that the Raspberry Pi is 32bit and can’t run Golang 1.9, and therefore Skywire.
+
+**Basically: Learn, Share, Repeat!**
+
+# Skywire testnet is now live!
 The Skywire testnet was launched on 22-May. The following are links to the official announcements (on Medium):
 * [Skywire testnet release announcment (21-May)](https://medium.com/@Skycoinproject/skywire-testnet-release-announcement-153583bc9d0e?source=linkShare-3babfcdcbb45-1526854196)
 * [Skywire testnet whitelisting and installation manuals (22-May)](https://medium.com/@Skycoinproject/skywire-testnet-whitelisting-installation-manuals-eac7bca63597?source=linkShare-3babfcdcbb45-1527025600)
@@ -9,10 +26,13 @@ The Skywire testnet was launched on 22-May. The following are links to the offic
 The Skywire team have released an official installation guide which I recommend you read and follow (it contains details of new discovery nodes):
 * [Skywire Installation Guide v1.0](https://downloads.skycoin.net/skywire/Skywire-Installation-Guide-v1.0.pdf) (Linux section is important for RasPi owners)
 
-## Updating Skywire on your DIY RasPi
-Get ready for the Skywire testnet and update your DIY RasPi miners (note this proces should work for other DIY platforms also - however I have not tested it specifically).
+# Instructions
 
-If you are new and wish to install for the first time, please skip forward to the [Overview](#overview) section below.
+* Follow the [Update](#Update) section below to update an existing Skywire installation on RasPi.
+* Follow the [Install](#Install) section below to install a fresh (new) RasPi with Skywire (from scratch).
+
+## Update
+Get ready for the Skywire testnet and update your DIY RasPi miners (note this proces should work for other DIY platforms also - however I have not tested it specifically).
 
 The following commands are required to update an already running Skywire node to the latest version of software from the official Github repo. You will need to run these commands on each Pi (node).
 
@@ -40,23 +60,8 @@ This will produce a directory listing with the files and their datetime stamps.
 
 At this point, assuming all went well - you should be updated and able to restart you new manager and node software. Again please refer to the [Skywire Installation Guide](https://downloads.skycoin.net/skywire/Skywire-Installation-Guide-v1.0.pdf) (Linux section) for details about the discovery node address to use.
 
-## Overview
-This howto is intended to provide guidance in setting up `Skywire` from the `SkyCoin` project on a `Raspberry Pi`.
-
-This HOWTO is based on my own research and experience setting up `Skywire` on a `Raspberry Pi 2 B+` and more recently the new `Raspberry Pi 3 B+` using standard `Raspbian OS` running `GoLang 1.9` and building `Skywire` directly from `GitHub` source. This has continued to worked for me (and others) as of `28-Mar-2018`.
-
-I now have a mini cluster of 3 Raspberry Pis running `Skywire Nodes` (and slowly adding to this over time).
-
-Some of my motivations for writing this howto are:
-* Learn more about the [SkyCoin project](https://github.com/skycoin).
-* Setup a `Skywire` node using a `Rasberry Pi`.
-* Share and help others in the community.
-* Help to dispell misinformation that this cannot be done - there was a lot out there! Mainly that the Raspberry Pi is 32bit and can’t run Golang 1.9, and therefore Skywire.
-
-**Basically: Learn, Share, Repeat**
-
-## Instructions
-### Setup your Raspberry Pi
+## Install
+The following steps will help you to setup Skywire on a new Raspberry Pi (from scratch):
 * Download the latest version of [NOOBS](https://www.raspberrypi.org/downloads/noobs/) from the official `Raspberry Pi` web site.
 * Setup an SD Card with NOOBs. Follow the official instructions on the `Raspberry Pi` site.
 * Add a file named `ssh` to the root folder of your NOOBs SD card. This will enable SSH by default from the first boot and will allow you to complete a headless setup (no directly connected keyboard and monitor).  
@@ -114,7 +119,7 @@ sudo apt-get remove golang
 sudo apt autoremove
 ```
 
-### Install Golang v1.9
+## Install Golang v1.9
 Skywire requires `Golang v1.9` or above. Download and install `Golang v1.9` from the official `GitHub` repo for the `Raspberry Pi` architecture using the following command:
 ```
 wget https://storage.googleapis.com/golang/go1.9.linux-armv6l.tar.gz
@@ -154,22 +159,22 @@ go version
 ```
 If you get errors here, something is wrong with your `Go` setup - most likely your paths or environment so check them carefully and make sure you reloaded you profile file using the `source` command.
 
-### Install Git
+## Install Git
 Use the following command to install Git:
 ```
 sudo apt-get install git
 ```
-### Install Skywire
+## Install Skywire
 Finally, follow the  [Skywire Offical Documentation](https://github.com/skycoin/skywire/blob/master/README.md) to clone the `GitHub` repo, build and then run the node using the instructions provided in the `Skywire` documentation.
 
-### Running the Manager and the Node
+## Running the Manager and the Node
 The official `Skywire` doco on GitHub provides the command lines needed to run both the Manager and the Node. 
 
 Previously this guide contained the commands needed to run both the Manager and the Node, however as the Skywire team may update these cmds from time to time so please follow their instructions:
 [Skywire Offical Documentation](https://github.com/skycoin/skywire/blob/master/README.md)
 
 
-## Further Reading
+# Further Reading
 The following are a list of additional reading that will no doubt help you in the setup:
 * [Raspberry Pi - Security](https://www.raspberrypi.org/documentation/configuration/security.md)
 * [Digital Ocean - SSH Essentials](https://www.digitalocean.com/community/tutorials/ssh-essentials-working-with-ssh-servers-clients-and-keys)
@@ -181,7 +186,7 @@ The following are a list of additional reading that will no doubt help you in th
 * [Raspberry Pi Headless Setup](http://www.circuitbasics.com/raspberry-pi-basics-setup-without-monitor-keyboard-headless-mode/)
 * [ifconfig.co Command line public IP enquiry service](https://ifconfig.co/)
 
-### SD Card Management
+## SD Card Management
 * [Etcher](https://etcher.io/)
 * [Raspberry Pi Bakery](http://www.pibakery.org/index.html)
 * [Raspberri Pi SD Card Cloning: Linux, Mac, Windows](https://beebom.com/how-clone-raspberry-pi-sd-card-windows-linux-macos/)
@@ -189,9 +194,12 @@ The following are a list of additional reading that will no doubt help you in th
 Good luck, and let me know how you get on.
 
 ***
-**Acknowledgements**
 
-Thanks to those in the [Skywire](https://t.me/skywire) and [SPO-Community](https://t.me/WeAreSPACO) Telegram groups, as well as the [Skywug Forum](https://skywug.net/) who have helped to provide feedback to enrich this HOWTO. Lots of helpful people in there - but special thanks to:
+# Acknowledgements
+
+Thanks to those in the [Skywire](https://t.me/skywire) and Telegram groups, as well as the [Skywug Forum](https://skywug.net/) who have helped to provide feedback to enrich this howto. 
+
+Lots of helpful people in those groups - but special thanks to:
 * MrHodlr | Systems Integrator | Skycoin
 * K. | Systems Integrator | Skycoin
 * asxtree
@@ -202,8 +210,6 @@ Thanks to those in the [Skywire](https://t.me/skywire) and [SPO-Community](https
 If you found my tips useful, consider providing a tip of your own ;-)
 ```
 Skycoin:    2aAprdFyxV3bqYB5yix2WsjsH1wqLKaoLhq
-
-SPO:        Wcw8jifS7nXBeHPhdJfBsXqbUHBubUDHAp
 
 BitCoin:    37rPeTNjosfydkB4nNNN1XKNrrxxfbLcMA
 ```
