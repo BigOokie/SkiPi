@@ -1,18 +1,21 @@
 # SkyPi Howto
 
-## Skywire Testnet is now live
-The Skywire Testnet was launched on 22-May. The following are links to the official announcements (on Medium):
+## Skywire testnet is now live!
+The Skywire testnet was launched on 22-May. The following are links to the official announcements (on Medium):
 * [Skywire testnet release announcment (21-May)](https://medium.com/@Skycoinproject/skywire-testnet-release-announcement-153583bc9d0e?source=linkShare-3babfcdcbb45-1526854196)
 * [Skywire testnet whitelisting and installation manuals (22-May)](https://medium.com/@Skycoinproject/skywire-testnet-whitelisting-installation-manuals-eac7bca63597?source=linkShare-3babfcdcbb45-1527025600)
 * [Skywire whitelist application form](https://www.skycoin.net/whitelist/)
 
-The Skywire team have released an official installation guide which I recommend you follow:
-[Skywire Installation Guide v1.0](https://downloads.skycoin.net/skywire/Skywire-Installation-Guide-v1.0.pdf)
+The Skywire team have released an official installation guide which I recommend you read and follow (it contains details of new discovery nodes):
+* [Skywire Installation Guide v1.0](https://downloads.skycoin.net/skywire/Skywire-Installation-Guide-v1.0.pdf) (Linux section is important for RasPi owners)
 
-## DIY RasPi Updates
-Get ready for the Skywire Testnet and update your DIY RasPi miners (note this proces should work for other DIY platforms also).
+## Updating Skywire on your DIY RasPi
+Get ready for the Skywire testnet and update your DIY RasPi miners (note this proces should work for other DIY platforms also - however I have not tested it specifically).
 
-Log into each board and run the following cmds (one by one):
+If you are new and wish to install for the first time, please skip forward to the [Overview](#overview) section below.
+
+The following commands are required to update an already running Skywire node to the latest version of software from the official Github repo. You will need to run these commands on each Pi (node).
+
 ```
 cd $GOPATH/src/github.com/skycoin/skywire
 
@@ -26,8 +29,16 @@ cd $GOPATH/src/github.com/skycoin/skywire/cmd
 
 go install -v ./...
 ```
-Following the `go install` cmd, you should see output stating which apps have been rebuilt. At this point you should be updated and can run the Manager and Nodes again. 
+Following the `go install -v ./...` cmd, you should see output stating which apps have been rebuilt. At this point you should be updated and can run the Manager and Nodes again.
 
+As a further check, you can also get a listing of the files in the `$GOPATH/bin` folder to check their datetime stamp and confirm they were updated. The following command can be used for this:
+```
+ls -la $GOPATH/bin
+```
+
+This will produce a directory listing with the files and their datetime stamps.
+
+At this point, assuming all went well - you should be updated and able to restart you new manager and node software. Again please refer to the [Skywire Installation Guide](https://downloads.skycoin.net/skywire/Skywire-Installation-Guide-v1.0.pdf) (Linux section) for details about the discovery node address to use.
 
 ## Overview
 This howto is intended to provide guidance in setting up `Skywire` from the `SkyCoin` project on a `Raspberry Pi`.
