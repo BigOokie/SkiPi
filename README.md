@@ -17,7 +17,7 @@ Some of my motivations for writing this howto are:
 
 **Basically: Learn, Share, Repeat!**
 
-# Skywire testnet is now live!
+## Skywire testnet is now live!
 The Skywire testnet was launched on 22-May. The following are links to the official announcements (on Medium):
 * [Skywire testnet release announcment (21-May)](https://medium.com/@Skycoinproject/skywire-testnet-release-announcement-153583bc9d0e?source=linkShare-3babfcdcbb45-1526854196)
 * [Skywire testnet whitelisting and installation manuals (22-May)](https://medium.com/@Skycoinproject/skywire-testnet-whitelisting-installation-manuals-eac7bca63597?source=linkShare-3babfcdcbb45-1527025600)
@@ -27,13 +27,40 @@ The Skywire team have released an official installation guide which I recommend 
 * [Skywire Installation Guide v1.0](https://downloads.skycoin.net/skywire/Skywire-Installation-Guide-v1.0.pdf) (Linux section is important for RasPi owners)
 
 # Instructions
-
-* Follow the [Update](#Update) section below to update an existing Skywire installation on RasPi.
-* Follow the [Install](#Install) section below to install a fresh (new) RasPi with Skywire (from scratch).
-
-## Update
 Get ready for the Skywire testnet and update your DIY RasPi miners (note this proces should work for other DIY platforms also - however I have not tested it specifically).
 
+* Follow the [Update Go](#Update-go) section below to ensure you are using the recommended version of `Go`.
+* Follow the [Update Skywire](#Update-Skywire) section below to update an existing Skywire installation on RasPi.
+* Follow the [Install a new Skywire node](#Install-a-new-Skywire-node) section below to install a fresh (new) RasPi with Skywire (from scratch).
+
+## Update Go
+**Note:** This section assumes you already have `Go` installed - and it can be skipped if you dont.
+
+The  official documentation now refers to the need to have `Go v1.10`. While it appears `Go v1.9` still works (for me at least) - it is unclear for how long and what issues may arrise - so always best to follow the official advise.
+
+For those of you already running `Go v1.10`, you can skip this section. If you are unsure log into your node(s) and run the following command
+```
+go version
+```
+This will report the version of Go that is currently installed. If it does not report `v1.10` (or greater), follow these steps to update it:
+```
+cd
+
+wget https://storage.googleapis.com/golang/go1.10.2.linux-armv6l.tar.gz
+
+sudo mv /usr/local/go /usr/local/go-old
+
+sudo tar -C /usr/local -xzf go1.10.2.linux-armv6l.tar.gz
+
+```
+The above steps will move your existing `Go` installation into the `/usr/local/go-old` folder and then extract the new version into the `/usr/local/go` folder. This is all that should be required and assuming all goes well you can remove the `go-old` folder at the end.
+
+Test that your version of `Go` has been updated using the following cmd:
+```
+go version
+```
+
+## Update Skywire
 The following commands are required to update an already running Skywire node to the latest version of software from the official Github repo. You will need to run these commands on each Pi (node).
 
 ```
@@ -60,7 +87,7 @@ This will produce a directory listing with the files and their datetime stamps.
 
 At this point, assuming all went well - you should be updated and able to restart you new manager and node software. Again please refer to the [Skywire Installation Guide](https://downloads.skycoin.net/skywire/Skywire-Installation-Guide-v1.0.pdf) (Linux section) for details about the discovery node address to use.
 
-## Install
+## Install a new Skywire node
 The following steps will help you to setup Skywire on a new Raspberry Pi (from scratch):
 * Download the latest version of [NOOBS](https://www.raspberrypi.org/downloads/noobs/) from the official `Raspberry Pi` web site.
 * Setup an SD Card with NOOBs. Follow the official instructions on the `Raspberry Pi` site.
@@ -119,12 +146,12 @@ sudo apt-get remove golang
 sudo apt autoremove
 ```
 
-## Install Golang v1.9
-Skywire requires `Golang v1.9` or above. Download and install `Golang v1.9` from the official `GitHub` repo for the `Raspberry Pi` architecture using the following command:
+### Install Go v1.10
+Skywire (now) requires `Go v1.10` or above. Download and install `Go v1.10` from the official `GitHub` repo for the `Raspberry Pi` architecture using the following command:
 ```
-wget https://storage.googleapis.com/golang/go1.9.linux-armv6l.tar.gz
+wget https://storage.googleapis.com/golang/go1.10.2.linux-armv6l.tar.gz
 
-sudo tar -C /usr/local -xzf go1.9.linux-armv6l.tar.gz
+sudo tar -C /usr/local -xzf go1.10.2.linux-armv6l.tar.gz
 ```
 
 Make sure you are in your users home folder, create your local `Go` environment folders:
@@ -153,28 +180,28 @@ Next you need to update your running environment with the changes you made to yo
 source ~/.profile
 ```
 
-Assuming everything went well to this point, you should now have `Golang v1.9` installed on your `Raspberry Pi`. Use the following command to check:
+Assuming everything went well to this point, you should now have `Go v1.10` installed on your `Raspberry Pi`. Use the following command to check:
 ```
 go version
 ```
 If you get errors here, something is wrong with your `Go` setup - most likely your paths or environment so check them carefully and make sure you reloaded you profile file using the `source` command.
 
-## Install Git
+### Install Git
 Use the following command to install Git:
 ```
 sudo apt-get install git
 ```
-## Install Skywire
+### Install Skywire
 Finally, follow the  [Skywire Offical Documentation](https://github.com/skycoin/skywire/blob/master/README.md) to clone the `GitHub` repo, build and then run the node using the instructions provided in the `Skywire` documentation.
 
-## Running the Manager and the Node
+### Running the Manager and the Node
 The official `Skywire` doco on GitHub provides the command lines needed to run both the Manager and the Node. 
 
 Previously this guide contained the commands needed to run both the Manager and the Node, however as the Skywire team may update these cmds from time to time so please follow their instructions:
 [Skywire Offical Documentation](https://github.com/skycoin/skywire/blob/master/README.md)
 
 
-# Further Reading
+## Further Reading
 The following are a list of additional reading that will no doubt help you in the setup:
 * [Raspberry Pi - Security](https://www.raspberrypi.org/documentation/configuration/security.md)
 * [Digital Ocean - SSH Essentials](https://www.digitalocean.com/community/tutorials/ssh-essentials-working-with-ssh-servers-clients-and-keys)
@@ -186,18 +213,15 @@ The following are a list of additional reading that will no doubt help you in th
 * [Raspberry Pi Headless Setup](http://www.circuitbasics.com/raspberry-pi-basics-setup-without-monitor-keyboard-headless-mode/)
 * [ifconfig.co Command line public IP enquiry service](https://ifconfig.co/)
 
-## SD Card Management
+### SD Card Management
 * [Etcher](https://etcher.io/)
 * [Raspberry Pi Bakery](http://www.pibakery.org/index.html)
 * [Raspberri Pi SD Card Cloning: Linux, Mac, Windows](https://beebom.com/how-clone-raspberry-pi-sd-card-windows-linux-macos/)
 
 Good luck, and let me know how you get on.
 
-***
-
 # Acknowledgements
-
-Thanks to those in the [Skywire](https://t.me/skywire) and Telegram groups, as well as the [Skywug Forum](https://skywug.net/) who have helped to provide feedback to enrich this howto. 
+Thanks to those in the [Skywire](https://t.me/skywire) and Telegram groups,as well as the [Skywug Forum](https://skywug.net/) who have helped to provide feedback to enrich this howto. 
 
 Lots of helpful people in those groups - but special thanks to:
 * MrHodlr | Systems Integrator | Skycoin
