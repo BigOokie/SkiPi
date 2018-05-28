@@ -32,6 +32,7 @@ Get ready for the Skywire testnet and update your DIY RasPi miners (note this pr
 * Follow the [Update Go](#Update-go) section below to ensure you are using the recommended version of `Go`.
 * Follow the [Update Skywire](#Update-Skywire) section below to update an existing Skywire installation on RasPi.
 * Follow the [Install a new Skywire node](#Install-a-new-Skywire-node) section below to install a fresh (new) RasPi with Skywire (from scratch).
+* Follow the [Backup Node Keys](#Backup-node-keys) section below after you complete the whitelist application.
 
 ## Update Go
 **Note:** This section assumes you already have `Go` installed - and it can be skipped if you dont.
@@ -199,6 +200,26 @@ The official `Skywire` doco on GitHub provides the command lines needed to run b
 
 Previously this guide contained the commands needed to run both the Manager and the Node, however as the Skywire team may update these cmds from time to time so please follow their instructions:
 [Skywire Offical Documentation](https://github.com/skycoin/skywire/blob/master/README.md)
+
+## Backup Node Keys
+After building your DIY node and comoleting the official
+whitelist application form, i strongly suggest you securly backup your Node keys (and other related config). This section will guide you in doing this.
+
+**Note:** The Node
+config files appear to contain seeds and private information. You and you alone are responsible for these. Do not share them and make sure you have taken adequate steps to secure them.
+
+The process outlined here involves the use of an SFTP tool to securly access your node and copy the require files to you machine where you can securly back them up.
+
+Find an SFTP tool you like. Some suggestions:
+* Forklift (MacOS)
+* FileZilla (Cross Platform)
+* scp (cmd line)
+
+With your selected tool, enter your SSH connection details for the Node you want to access. Log into the node and make sure your in the users home folder (normally default).
+
+Copy the entire contents of the `.skywire` folder. There are multiple folders in this folder - but it will get everything needed from your nodes current configuration, including its keys.
+
+Once you have the folder and its contents on your computer back it up and name it meaningfully (so you know which node it came from).
 
 
 ## Further Reading
