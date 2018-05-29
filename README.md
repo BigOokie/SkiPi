@@ -134,7 +134,7 @@ Once the Configuration App starts, you should update the following:
 * Regional Settings.
 * Timezone.
 * Keyboard.
-* Password (aleays change this from the default!).
+* Password (always change this from the default!).
 * Enable SSH access - if you havent enabled it already using the `ssh` file. SSH settings
 are found in Interfacing Options > SSH. 
 
