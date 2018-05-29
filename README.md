@@ -3,14 +3,14 @@
 ## Overview
 This howto is intended to provide guidance in setting up and updating`Skywire` from the `Skycoin` project on a `Raspberry Pi`.
 
-This howto is based on my own research and experience setting up `Skywire` on a `Raspberry Pi 2 B+` and more recently the new `Raspberry Pi 3 B+` using standard `Raspbian OS (NOOBs)` running `GoLang 1.10` and building `Skywire` directly from `GitHub` source. 
+This howto is based on my own research and experience setting up `Skywire` on a `Raspberry Pi 2 B+` and more recently the new `Raspberry Pi 3 B+` using standard `Raspbian OS (NOOBs)` running `Go v1.10` and building `Skywire` directly from `GitHub` source. 
 
 This guide has continued to work for me and others as of `25-May-2018`. I endevor to keep the guide current - so please let me know if there are any ommissions, gaps or issues.
 
 I now have a mini cluster of Raspberry Pi's running `Skywire Nodes` and will slowly add more over time.
 
 Some of my motivations for writing this howto are:
-* Learn more about the [SkyCoin project](https://github.com/skycoin).
+* Learn more about the [Skycoin project](https://github.com/skycoin).
 * Setup a `Skywire` node using a `Rasberry Pi`.
 * Share and help others in the community.
 * Help to dispell misinformation that this cannot be done - there was a lot out there! Mainly that the Raspberry Pi is 32bit and can’t run Golang 1.9, and therefore Skywire.
@@ -29,7 +29,7 @@ The Skywire team have released an official installation guide which I recommend 
 # Instructions
 Get ready for the Skywire testnet and update your DIY RasPi miners (note this proces should work for other DIY platforms also - however I have not tested it specifically).
 
-* Follow the [Update Go](#Update-go) section below to ensure you are using the recommended version of `Go`.
+* Follow the [Update Go](#Update-Go) section below to ensure you are using the recommended version of `Go`.
 * Follow the [Update Skywire](#Update-Skywire) section below to update an existing Skywire installation on RasPi.
 * Follow the [Install a new Skywire node](#Install-a-new-Skywire-node) section below to install a fresh (new) RasPi with Skywire (from scratch).
 * Follow the [Backup Node Keys](#Backup-node-keys) section below after you complete the whitelist application.
