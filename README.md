@@ -202,8 +202,7 @@ Previously this guide contained the commands needed to run both the Manager and 
 [Skywire Offical Documentation](https://github.com/skycoin/skywire/blob/master/README.md)
 
 ## Backup Node Keys
-After building your DIY node and comoleting the official
-whitelist application form, i strongly suggest you securly backup your Node keys (and other related config). This section will guide you in doing this.
+After building your DIY node and completing the official whitelist application form, i strongly suggest you securely backup your Node keys (and other related config). This section will guide you in doing this.
 
 **Note:** The Node
 config files appear to contain seeds and private information. You and you alone are responsible for these. Do not share them and make sure you have taken adequate steps to secure them.
