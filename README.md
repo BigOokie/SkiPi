@@ -220,6 +220,13 @@ Copy the entire contents of the `.skywire` folder. There are multiple folders in
 
 Once you have the folder and its contents on your computer back it up and name it meaningfully (so you know which node it came from).
 
+## Setup OpenDNS
+For my DIY setup, i use a Ubiquiti EdgeRouterX as the Router. It’s a pretty neat bit of gear - but there is a lesrning curve. I’ve set mine up to force all requests to be lassed through OpenDNS, and prevent access to other DNS provoders via firewall rules. 
+
+The process used for this is described well in this [Youtube Video](https://youtu.be/YYwL6-n0qrU). The video uses a different DNS provider - just substitute their DNS server IPs for OpenDNS.
+
+You can then use OpenDNS dashboard to setup site restriction policies to deny access to specific classes
+of sites.
 
 ## Further Reading
 The following are a list of additional reading that will no doubt help you in the setup:
