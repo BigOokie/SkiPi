@@ -218,6 +218,10 @@ With your selected tool, enter your SSH connection details for the Node you want
 
 Copy the entire contents of the `.skywire` folder. There are multiple folders in this folder - but it will get everything needed from your nodes current configuration, including its keys.
 
+**Note:** The `.skywire` folder is located in different places depending on if you run a DIY or an Official. This is likely a result of the autostart scripts used by the Official miner image.
+* On a DIY node, you will find the folder in your users Home folder `~/.skywire`
+* On an Official node, you will find the folder in the application Bin folder `$GOPATH/bin/.skywire`
+
 Once you have the folder and its contents on your computer back it up and name it meaningfully (so you know which node it came from).
 
 ## Setup OpenDNS
