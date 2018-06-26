@@ -261,7 +261,7 @@ Lots of helpful people in those groups - but special thanks to:
 ***
 If you found my tips useful, consider providing a tip of your own ;-)
 ```
-Skycoin:    2aAprdFyxV3bqYB5yix2WsjsH1wqLKaoLhq
+Skycoin:    ES5LccJDhBCK275APmW9tmQNEgiYwTFKQF
 
 BitCoin:    37rPeTNjosfydkB4nNNN1XKNrrxxfbLcMA
 ```
