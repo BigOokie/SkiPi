@@ -24,7 +24,7 @@ The Skywire testnet was launched on 22-May. The following are links to the offic
 * [Skywire whitelist application form](https://www.skycoin.net/whitelist/)
 
 The Skywire team have released an official installation guide which I recommend you read and follow (it contains details of new discovery nodes):
-* [Skywire Installation Guide v1.0](https://downloads.skycoin.net/skywire/Skywire-Installation-Guide-v1.0.pdf) (Linux section is important for RasPi owners)
+* [Skywire Installation Guide](https://github.com/skycoin/skywire/wiki/Skyminer-Skywire-installation-guide) (Linux section is important for RasPi owners)
 
 # Instructions
 Get ready for the Skywire testnet and update your DIY RasPi miners (note this proces should work for other DIY platforms also - however I have not tested it specifically).
