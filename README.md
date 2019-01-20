@@ -20,9 +20,11 @@ Some of my motivations for writing this howto are:
 ## Skywire testnet is now live!
 The Skywire testnet was launched on 22-May. The following are links to the official announcements (on Medium):
 * [Skywire testnet release announcment (21-May)](https://medium.com/@Skycoinproject/skywire-testnet-release-announcement-153583bc9d0e?source=linkShare-3babfcdcbb45-1526854196)
-* [Skywire testnet whitelisting and installation manuals (22-May)](https://medium.com/@Skycoinproject/skywire-testnet-whitelisting-installation-manuals-eac7bca63597?source=linkShare-3babfcdcbb45-1527025600)
-* [Skywire whitelist application form](https://www.skycoin.net/whitelist/)
+
+All the information you require about Skywire and the Testnet can be found on the official [Skywire Wiki](https://github.com/skycoin/skywire/wiki):
 * [Skywire testnet rules article](https://github.com/skycoin/skywire/blob/master/testnet_rules.md)
+* [Skywire whitelist application form](https://whitelist.skycoin.net/)
+* [Skywire testnet whitelisting and installation manuals (22-May)](https://medium.com/@Skycoinproject/skywire-testnet-whitelisting-installation-manuals-eac7bca63597?source=linkShare-3babfcdcbb45-1527025600)
 
 The Skywire team have released an official installation guide which I recommend you read and follow (it contains details of new discovery nodes):
 * [Skywire Installation Guide](https://github.com/skycoin/skywire/wiki/Skyminer-Skywire-installation-guide#installation-from-source)
