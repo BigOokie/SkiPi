@@ -1,30 +1,38 @@
 # SkyPi Howto
 
 ## Overview
-This howto is intended to provide guidance in setting up and updating`Skywire` from the `Skycoin` project on a `Raspberry Pi`.
+This howto is intended to provide guidance in setting up and updating`Skywire` (Testnet) from the `Skycoin` project on a `Raspberry Pi`.
 
-This howto is based on my own research and experience setting up `Skywire` on a `Raspberry Pi 2 B+` and more recently the new `Raspberry Pi 3 B+` using standard `Raspbian OS (NOOBs)` running `Go v1.10` and building `Skywire` directly from `GitHub` source. 
+This howto is based on my own research and experience setting up `Skywire` (Testnet) on a `Raspberry Pi 2 B+` and more recently the new `Raspberry Pi 3 B+` using standard `Raspbian OS (NOOBs)` running `Go v1.10` and building `Skywire` directly from `GitHub` source. 
 
-This guide has continued to work for me and others as of `25-May-2018`. I endevor to keep the guide current - so please let me know if there are any ommissions, gaps or issues.
+This guide has continued to work for me and others as of `1-Apr-2019`. I endevor to keep the guide current - so please let me know if there are any ommissions, gaps or issues.
+
+This guide does not cover the recently launched `Skywire` Mainnet. Detailed steps for deployment of `Skywire` Mainnet are provided by the project team in the [GitHub Skywire Mainnet Repo](https://github.com/skycoin/skywire/blob/mainnet/README.md).
 
 I now have a mini cluster of Raspberry Pi's running `Skywire Nodes` and will slowly add more over time.
 
 Some of my motivations for writing this howto are:
 * Learn more about the [Skycoin project](https://github.com/skycoin).
-* Setup a `Skywire` node using a `Rasberry Pi`.
-* Share and help others in the community.
-* Help to dispell misinformation that this cannot be done - there was a lot out there! Mainly that the Raspberry Pi is 32bit and can’t run Golang 1.9, and therefore Skywire.
+* Setup a `Skywire` node using a `Raspberry Pi`.
+* Share and help others in the Skyfleet community.
+* Help to dispell misinformation that this cannot be done - there was a lot out there! Mainly that the Raspberry Pi is 32bit and can’t run Golang 1.9 / 1.10, and therefore Skywire.
 
 **Basically: Learn, Share, Repeat!**
 
+## Skywire mainnet is now live for public testing!
+The Skywire mainnet was launched for public testing on 4-Mar-2019. The following are links to the official announcements:
+* [Skywire Mainnet - Public Testing Announcement (4-Mar-2019)](https://www.skycoin.net/blog/posts/skywire-mainnet-public-testing-announcement/)
+
+Further technical information about Skywire Mainnet can be found on the [GitHub Skywire Mainnet Repo](https://github.com/skycoin/skywire/blob/mainnet/)
+
 ## Skywire testnet is now live!
-The Skywire testnet was launched on 22-May. The following are links to the official announcements (on Medium):
-* [Skywire testnet release announcment (21-May)](https://medium.com/@Skycoinproject/skywire-testnet-release-announcement-153583bc9d0e?source=linkShare-3babfcdcbb45-1526854196)
+The Skywire testnet was launched on 22-May-2018. The following are links to the official announcements (on Medium):
+* [Skywire testnet release announcment (21-May-2018)](https://medium.com/@Skycoinproject/skywire-testnet-release-announcement-153583bc9d0e?source=linkShare-3babfcdcbb45-1526854196)
 
 All the information you require about Skywire and the Testnet can be found on the official [Skywire Wiki](https://github.com/skycoin/skywire/wiki):
 * [Skywire testnet rules article](https://github.com/skycoin/skywire/blob/master/testnet_rules.md)
 * [Skywire whitelist application form](https://whitelist.skycoin.net/)
-* [Skywire testnet whitelisting and installation manuals (22-May)](https://medium.com/@Skycoinproject/skywire-testnet-whitelisting-installation-manuals-eac7bca63597?source=linkShare-3babfcdcbb45-1527025600)
+* [Skywire testnet whitelisting and installation manuals (22-May-2018)](https://medium.com/@Skycoinproject/skywire-testnet-whitelisting-installation-manuals-eac7bca63597?source=linkShare-3babfcdcbb45-1527025600)
 
 The Skywire team have released an official installation guide which I recommend you read and follow (it contains details of new discovery nodes):
 * [Skywire Installation Guide](https://github.com/skycoin/skywire/wiki/Skyminer-Skywire-installation-guide#installation-from-source)
@@ -43,11 +51,11 @@ Get ready for the Skywire testnet and update your DIY RasPi miners (note this pr
 The  official documentation now refers to the need to have `Go v1.10`. While it appears `Go v1.9` still works (for me at least) - it is unclear for how long and what issues may arrise - so always best to follow the official advise.
 
 For those of you already running `Go v1.10`, you can skip this section. If you are unsure log into your node(s) and run the following command
-```
+```bash
 go version
 ```
 This will report the version of Go that is currently installed. If it does not report `v1.10` (or greater), follow these steps to update it:
-```
+```bash
 cd
 
 wget https://storage.googleapis.com/golang/go1.10.2.linux-armv6l.tar.gz
@@ -60,14 +68,14 @@ sudo tar -C /usr/local -xzf go1.10.2.linux-armv6l.tar.gz
 The above steps will move your existing `Go` installation into the `/usr/local/go-old` folder and then extract the new version into the `/usr/local/go` folder. This is all that should be required and assuming all goes well you can remove the `go-old` folder at the end.
 
 Test that your version of `Go` has been updated using the following cmd:
-```
+```bash
 go version
 ```
 
 ## Update Skywire
 The following commands are required to update an already running Skywire node to the latest version of software from the official Github repo. You will need to run these commands on each Pi (node).
 
-```
+```bash
 cd $GOPATH/src/github.com/skycoin/skywire
 
 git reset --hard
@@ -83,7 +91,7 @@ go install -v ./...
 Following the `go install -v ./...` cmd, you should see output stating which apps have been rebuilt. At this point you should be updated and can run the Manager and Nodes again.
 
 As a further check, you can also get a listing of the files in the `$GOPATH/bin` folder to check their datetime stamp and confirm they were updated. The following command can be used for this:
-```
+```bash
 ls -la $GOPATH/bin
 ```
 
@@ -101,12 +109,12 @@ The following steps will help you to setup Skywire on a new Raspberry Pi (from s
 During the initial (first) boot, you will be asked which type of OS you want to install onto your `Raspberry Pi`. For my experiment I selected `Raspbian Lite` as I didnt want the bloat associated with the full desktop version, and also wanted to access my Pi remotely via SSH (headless).
 
 Once Raspbian is installed (this takes a while), log into the console using the default username and password:
-```
+```bash
 username: pi
 password: raspberry
 ```
 Once logged in, test your Pi is able to access the internet correctly. This appears to be a stumbling point for some and will cause issues later. Use the following command to test your connectivity:
-```
+```bash
 curl v4.ifconfig.co
 ```
 The command will make an enquiry to the ifconfig.co server and respond with your public IP. This tests two things:
@@ -116,7 +124,7 @@ The command will make an enquiry to the ifconfig.co server and respond with your
 If you get problems with the above cmd line, your problem is most likely your network setup. Everyones network is different, so I don’t cover network setup here.
 
 Next, update the system using the following commands:
-```
+```bash
 sudo apt-get update
 sudo apt-get upgrade
 ```
@@ -125,12 +133,12 @@ sudo apt-get upgrade
 If you are connected directly to your `Raspberry Pi` (keyboard and HDMI screen) you can reboot it simply by pressing `CTRL+ALT+DEL`
 
 Alternativly, you can issue the following command: 
-```
+```bash
 sudo reboot
 ```
 
 Next run the `Raspberry Pi Configuration` app using the following command:
-```
+```bash
 sudo raspi-config
 ```
 Once the Configuration App starts, you should update the following:
@@ -145,21 +153,21 @@ are found in Interfacing Options > SSH.
 
 ### Remove pre-installed Golang.
 The following commands can be used to remove any pre-installed versions of `GoLang` from the Pi - seems it may not be installed by default, but no harm in running this anyway:
-```
+```bash
 sudo apt-get remove golang
 sudo apt autoremove
 ```
 
 ### Install Go v1.10
 Skywire (now) requires `Go v1.10` or above. Download and install `Go v1.10` from the official `GitHub` repo for the `Raspberry Pi` architecture using the following command:
-```
+```bash
 wget https://storage.googleapis.com/golang/go1.10.2.linux-armv6l.tar.gz
 
 sudo tar -C /usr/local -xzf go1.10.2.linux-armv6l.tar.gz
 ```
 
 Make sure you are in your users home folder, create your local `Go` environment folders:
-```
+```bash
 cd ~
 mkdir go
 mkdir go/bin
@@ -167,11 +175,11 @@ mkdir go/src
 ```
 
 Add the newly installed `Go` binaries and your build environment folders to your users `PATH`. Edit your `~/.profile` file:
-```
+```bash
 nano ~/.profile
 ```
 Add the following to the end of the file:
-```
+```bash
 export PATH=$PATH:/usr/local/go/bin
 export GOPATH=$HOME/go
 export GOBIN=$HOME/go/bin
@@ -180,19 +188,19 @@ export GOBIN=$HOME/go/bin
 I recommend looking at the official [Golang Settings Guide](https://github.com/golang/go/wiki/SettingGOPATH) for more information on environment variables you should add to your `~/.profile` file to make this work better (`$GOPATH`, `$GOBIN`)
 
 Next you need to update your running environment with the changes you made to your `~/.profile` file by running the following command:
-```
+```bash
 source ~/.profile
 ```
 
 Assuming everything went well to this point, you should now have `Go v1.10` installed on your `Raspberry Pi`. Use the following command to check:
-```
+```bash
 go version
 ```
 If you get errors here, something is wrong with your `Go` setup - most likely your paths or environment so check them carefully and make sure you reloaded you profile file using the `source` command.
 
 ### Install Git
 Use the following command to install Git:
-```
+```bash
 sudo apt-get install git
 ```
 ### Install Skywire
@@ -258,7 +266,7 @@ Good luck, and let me know how you get on.
 # Acknowledgements
 Thanks to those in the [Skywire](https://t.me/skywire) and Telegram groups,as well as the [Skywug Forum](https://skywug.net/) who have helped to provide feedback to enrich this howto. 
 
-Lots of helpful people in those groups - but special thanks to:
+Lots of helpful people in the Skyfleet telegram groups - but special thanks to:
 * MrHodlr | Systems Integrator | Skycoin
 * K. | Systems Integrator | Skycoin
 * asxtree
@@ -267,9 +275,12 @@ Lots of helpful people in those groups - but special thanks to:
 
 ***
 If you found my tips useful, consider providing a tip of your own ;-)
-```
-Skycoin:    ES5LccJDhBCK275APmW9tmQNEgiYwTFKQF
 
-BitCoin:    37rPeTNjosfydkB4nNNN1XKNrrxxfbLcMA
-```
+**Skycoin: ES5LccJDhBCK275APmW9tmQNEgiYwTFKQF**
+
+<img src="skycoin-donation-qr.jpg" width=300 height=300>
+
+
+**BitCoin: 37rPeTNjosfydkB4nNNN1XKNrrxxfbLcMA**
+
 ***
