@@ -32,6 +32,7 @@ The Skywire testnet was launched on 22-May-2018. The following are links to the 
 All the information you require about Skywire and the Testnet can be found on the official [Skywire Wiki](https://github.com/skycoin/skywire/wiki):
 * [Skywire testnet rules article](https://github.com/skycoin/skywire/blob/master/testnet_rules.md)
 * [Skywire whitelist application form](https://whitelist.skycoin.net/)
+* [Skywire whitelisting system user guide](https://github.com/skycoin/skywire/wiki/Skywire-Whitelisting-System)
 * [Skywire testnet whitelisting and installation manuals (22-May-2018)](https://medium.com/@Skycoinproject/skywire-testnet-whitelisting-installation-manuals-eac7bca63597?source=linkShare-3babfcdcbb45-1527025600)
 
 The Skywire team have released an official installation guide which I recommend you read and follow (it contains details of new discovery nodes):
@@ -48,21 +49,21 @@ Get ready for the Skywire testnet and update your DIY RasPi miners (note this pr
 ## Update Go
 **Note:** This section assumes you already have `Go` installed - and it can be skipped if you dont.
 
-The  official documentation now refers to the need to have `Go v1.10`. While it appears `Go v1.9` still works (for me at least) - it is unclear for how long and what issues may arrise - so always best to follow the official advise.
+The  official documentation now refers to the need to have `Go v1.9+`. While it appears `Go v1.9` still works (for me at least) - it is unclear for how long and what issues may arrise - so always best to follow the official advise.
 
-For those of you already running `Go v1.10`, you can skip this section. If you are unsure log into your node(s) and run the following command
+For those of you already running `Go v1.12`, you can skip this section. If you are unsure log into your node(s) and run the following command
 ```bash
 go version
 ```
-This will report the version of Go that is currently installed. If it does not report `v1.10` (or greater), follow these steps to update it:
+This will report the version of Go that is currently installed. If it does not report `v1.12`, follow these steps to update it:
 ```bash
 cd
 
-wget https://storage.googleapis.com/golang/go1.10.2.linux-armv6l.tar.gz
+wget https://storage.googleapis.com/golang/go1.12.linux-armv6l.tar.gz
 
 sudo mv /usr/local/go /usr/local/go-old
 
-sudo tar -C /usr/local -xzf go1.10.2.linux-armv6l.tar.gz
+sudo tar -C /usr/local -xzf go1.12.linux-armv6l.tar.gz
 
 ```
 The above steps will move your existing `Go` installation into the `/usr/local/go-old` folder and then extract the new version into the `/usr/local/go` folder. This is all that should be required and assuming all goes well you can remove the `go-old` folder at the end.
@@ -97,7 +98,7 @@ ls -la $GOPATH/bin
 
 This will produce a directory listing with the files and their datetime stamps.
 
-At this point, assuming all went well - you should be updated and able to restart you new manager and node software. Again please refer to the [Skywire Installation Guide](https://downloads.skycoin.net/skywire/Skywire-Installation-Guide-v1.0.pdf) (Linux section) for details about the discovery node address to use.
+At this point, assuming all went well - you should be updated and able to restart you new manager and node software. Again please refer to the [Skywire GitHub Readme](https://github.com/skycoin/skywire#run-skywire) for details about the discovery node address to use.
 
 ## Install a new Skywire node
 The following steps will help you to setup Skywire on a new Raspberry Pi (from scratch):
@@ -158,12 +159,13 @@ sudo apt-get remove golang
 sudo apt autoremove
 ```
 
-### Install Go v1.10
-Skywire (now) requires `Go v1.10` or above. Download and install `Go v1.10` from the official `GitHub` repo for the `Raspberry Pi` architecture using the following command:
+### Install Go v1.12
+Skywire (now) requires `Go v1.9` or above. Download and install `Go v1.12` from the official `GitHub` repo for the `Raspberry Pi` architecture using the following command:
 ```bash
-wget https://storage.googleapis.com/golang/go1.10.2.linux-armv6l.tar.gz
+wget https://storage.googleapis.com/golang/go1.12.linux-armv6l.tar.gz
 
-sudo tar -C /usr/local -xzf go1.10.2.linux-armv6l.tar.gz
+sudo tar -C /usr/local -xzf go1.12.linux-armv6l.tar.gz
+rm go1.12.linux-armv6l.tar.gz
 ```
 
 Make sure you are in your users home folder, create your local `Go` environment folders:
@@ -192,7 +194,7 @@ Next you need to update your running environment with the changes you made to yo
 source ~/.profile
 ```
 
-Assuming everything went well to this point, you should now have `Go v1.10` installed on your `Raspberry Pi`. Use the following command to check:
+Assuming everything went well to this point, you should now have `Go v1.12` installed on your `Raspberry Pi`. Use the following command to check:
 ```bash
 go version
 ```
@@ -205,6 +207,7 @@ sudo apt-get install git
 ```
 ### Install Skywire
 Finally, follow the  [Skywire Offical Documentation](https://github.com/skycoin/skywire/blob/master/README.md) to clone the `GitHub` repo, build and then run the node using the instructions provided in the `Skywire` documentation.
+Detailed installation instructions can be found on the [Skywire wiki](https://github.com/skycoin/skywire/wiki/Skyminer-Skywire-Installation-Guide#installation-from-source).
 
 ### Running the Manager and the Node
 The official `Skywire` doco on GitHub provides the command lines needed to run both the Manager and the Node. 
