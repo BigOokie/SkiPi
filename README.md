@@ -7,12 +7,12 @@ This howto is based on my own research and experience setting up `Skywire` (Test
 
 This guide has continued to work for me and others as of `1-Apr-2019`. I endevor to keep the guide current - so please let me know if there are any ommissions, gaps or issues.
 
-This guide does not cover the recently launched `Skywire` Mainnet. Detailed steps for deployment of `Skywire` Mainnet are provided by the project team in the [GitHub Skywire Mainnet Repo](https://github.com/skycoin/skywire/blob/mainnet/README.md).
+This guide does not cover the recently launched `Skywire` Mainnet. Detailed steps for deployment of `Skywire` Mainnet are provided by the project team in the [GitHub Skywire Mainnet Repo](https://github.com/SkycoinProject/skywire-mainnet/blob/master/README.md).
 
 I now have a mini cluster of Raspberry Pi's running `Skywire Nodes` and will slowly add more over time.
 
 Some of my motivations for writing this howto are:
-* Learn more about the [Skycoin project](https://github.com/skycoin).
+* Learn more about the [Skycoin Project](https://github.com/SkycoinProject).
 * Setup a `Skywire` node using a `Raspberry Pi`.
 * Share and help others in the Skyfleet community.
 * Help to dispell misinformation that this cannot be done - there was a lot out there! Mainly that the Raspberry Pi is 32bit and can’t run Golang 1.9 / 1.10, and therefore Skywire.
@@ -23,20 +23,20 @@ Some of my motivations for writing this howto are:
 The Skywire mainnet was launched for public testing on 4-Mar-2019. The following are links to the official announcements:
 * [Skywire Mainnet - Public Testing Announcement (4-Mar-2019)](https://www.skycoin.com/blog/posts/skywire-mainnet-public-testing-announcement/)
 
-Further technical information about Skywire Mainnet can be found on the [GitHub Skywire Mainnet Repo](https://github.com/skycoin/skywire/blob/mainnet/)
+Further technical information about Skywire Mainnet can be found on the GitHub [Skywire Mainnet Repo](https://github.com/SkycoinProject/skywire-mainnet/)
 
 ## Skywire testnet is now live!
 The Skywire testnet was launched on 22-May-2018. The following are links to the official announcements (on Medium):
-* [Skywire testnet release announcment (21-May-2018)](https://medium.com/@Skycoinproject/skywire-testnet-release-announcement-153583bc9d0e?source=linkShare-3babfcdcbb45-1526854196)
+* [Skywire testnet release announcment (21-May-2018)](https://medium.com/@Skycoin/skywire-testnet-release-announcement-153583bc9d0e?source=linkShare-3babfcdcbb45-1526854196)
 
-All the information you require about Skywire and the Testnet can be found on the official [Skywire Wiki](https://github.com/skycoin/skywire/wiki):
-* [Skywire testnet rules article](https://github.com/skycoin/skywire/blob/master/testnet_rules.md)
+All the information you require about Skywire and the Testnet can be found on the official [Skywire Wiki](https://github.com/SkycoinProject/skywire/wiki):
+* [Skywire testnet rules article](https://github.com/SkycoinProject/skywire/blob/master/testnet_rules.md)
 * [Skywire whitelist application form](https://whitelist.skycoin.com/)
-* [Skywire whitelisting system user guide](https://github.com/skycoin/skywire/wiki/Skywire-Whitelisting-System)
-* [Skywire testnet whitelisting and installation manuals (22-May-2018)](https://medium.com/@Skycoinproject/skywire-testnet-whitelisting-installation-manuals-eac7bca63597?source=linkShare-3babfcdcbb45-1527025600)
+* [Skywire whitelisting system user guide](https://github.com/SkycoinProject/skywire/wiki/Skywire-Whitelisting-System)
+* [Skywire testnet whitelisting and installation manuals (22-May-2018)](https://medium.com/@Skycoin/skywire-testnet-whitelisting-installation-manuals-eac7bca63597?source=linkShare-3babfcdcbb45-1527025600)
 
 The Skywire team have released an official installation guide which I recommend you read and follow (it contains details of new discovery nodes):
-* [Skywire Installation Guide](https://github.com/skycoin/skywire/wiki/Skyminer-Skywire-installation-guide#installation-from-source)
+* [Skywire Installation Guide](https://github.com/SkycoinProject/skywire/wiki/Skyminer-Skywire-installation-guide#installation-from-source)
 
 # Instructions
 Get ready for the Skywire testnet and update your DIY RasPi miners (note this proces should work for other DIY platforms also - however I have not tested it specifically).
@@ -77,7 +77,7 @@ go version
 The following commands are required to update an already running Skywire node to the latest version of software from the official Github repo. You will need to run these commands on each Pi (node).
 
 ```bash
-cd $GOPATH/src/github.com/skycoin/skywire
+cd $GOPATH/src/github.com/SkycoinProject/skywire
 
 git reset --hard
 
@@ -85,7 +85,7 @@ git clean -f -d
 
 git pull origin master
 
-cd $GOPATH/src/github.com/skycoin/skywire/cmd
+cd $GOPATH/src/github.com/SkycoinProject/skywire/cmd
 
 go install -v ./...
 ```
@@ -98,7 +98,7 @@ ls -la $GOPATH/bin
 
 This will produce a directory listing with the files and their datetime stamps.
 
-At this point, assuming all went well - you should be updated and able to restart you new manager and node software. Again please refer to the [Skywire GitHub Readme](https://github.com/skycoin/skywire#run-skywire) for details about the discovery node address to use.
+At this point, assuming all went well - you should be updated and able to restart you new manager and node software. Again please refer to the [Skywire GitHub Readme](https://github.com/SkycoinProject/skywire#run-skywire) for details about the discovery node address to use.
 
 ## Install a new Skywire node
 The following steps will help you to setup Skywire on a new Raspberry Pi (from scratch):
@@ -206,14 +206,14 @@ Use the following command to install Git:
 sudo apt-get install git
 ```
 ### Install Skywire
-Finally, follow the  [Skywire Offical Documentation](https://github.com/skycoin/skywire/blob/master/README.md) to clone the `GitHub` repo, build and then run the node using the instructions provided in the `Skywire` documentation.
-Detailed installation instructions can be found on the [Skywire wiki](https://github.com/skycoin/skywire/wiki/Skyminer-Skywire-Installation-Guide#installation-from-source).
+Finally, follow the  [Skywire Offical Documentation](https://github.com/SkycoinProject/skywire/blob/master/README.md) to clone the `GitHub` repo, build and then run the node using the instructions provided in the `Skywire` documentation.
+Detailed installation instructions can be found on the [Skywire wiki](https://github.com/SkycoinProject/skywire/wiki/Skyminer-Skywire-Installation-Guide#installation-from-source).
 
 ### Running the Manager and the Node
 The official `Skywire` doco on GitHub provides the command lines needed to run both the Manager and the Node. 
 
 Previously this guide contained the commands needed to run both the Manager and the Node, however as the Skywire team may update these cmds from time to time so please follow their instructions:
-[Skywire Offical Documentation](https://github.com/skycoin/skywire/blob/master/README.md)
+[Skywire Offical Documentation](https://github.com/SkycoinProject/skywire/blob/master/README.md)
 
 ## Backup Node Keys
 After building your DIY node and completing the official whitelist application form, i strongly suggest you securely backup your Node keys (and other related config). This section will guide you in doing this.
