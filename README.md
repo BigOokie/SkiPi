@@ -21,7 +21,7 @@ Some of my motivations for writing this howto are:
 
 ## Skywire mainnet is now live for public testing!
 The Skywire mainnet was launched for public testing on 4-Mar-2019. The following are links to the official announcements:
-* [Skywire Mainnet - Public Testing Announcement (4-Mar-2019)](https://www.skycoin.net/blog/posts/skywire-mainnet-public-testing-announcement/)
+* [Skywire Mainnet - Public Testing Announcement (4-Mar-2019)](https://www.skycoin.com/blog/posts/skywire-mainnet-public-testing-announcement/)
 
 Further technical information about Skywire Mainnet can be found on the [GitHub Skywire Mainnet Repo](https://github.com/skycoin/skywire/blob/mainnet/)
 
@@ -31,7 +31,7 @@ The Skywire testnet was launched on 22-May-2018. The following are links to the 
 
 All the information you require about Skywire and the Testnet can be found on the official [Skywire Wiki](https://github.com/skycoin/skywire/wiki):
 * [Skywire testnet rules article](https://github.com/skycoin/skywire/blob/master/testnet_rules.md)
-* [Skywire whitelist application form](https://whitelist.skycoin.net/)
+* [Skywire whitelist application form](https://whitelist.skycoin.com/)
 * [Skywire whitelisting system user guide](https://github.com/skycoin/skywire/wiki/Skywire-Whitelisting-System)
 * [Skywire testnet whitelisting and installation manuals (22-May-2018)](https://medium.com/@Skycoinproject/skywire-testnet-whitelisting-installation-manuals-eac7bca63597?source=linkShare-3babfcdcbb45-1527025600)
 
