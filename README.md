@@ -1,4 +1,4 @@
-# SkyPi Howto: Running Skycoin TestNet on Raspberry Pi
+# SkyPi Howto: Running Skycoin Skywire TestNet on Raspberry Pi
 
 > ## NOTE:
 > Skycoin Skywire Mainnet has launched 🚀
