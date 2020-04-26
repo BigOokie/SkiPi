@@ -1,4 +1,14 @@
-# SkyPi Howto
+# SkyPi Howto: Running Skycoin TestNet on Raspberry Pi
+
+> ## NOTE:
+> Skycoin Mainnet has launched 🚀
+>
+> As such this guide has now been deprecated and this repository will also be archived.
+>
+> Details about the Skycoin Mainnet lauch and how you can update from Testnet to Mainnet can be found here:
+> https://www.skycoin.com/blog/posts/mainnet-launch/
+>
+> Finally - well done to the Skycoin team and broader community on this massive milestone!
 
 ## Overview
 This howto is intended to provide guidance in setting up and updating`Skywire` (Testnet) from the `Skycoin` project on a `Raspberry Pi`.
